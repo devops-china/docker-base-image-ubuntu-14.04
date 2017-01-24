@@ -17,7 +17,7 @@
   service: name=nginx enabled=yes
 
 - name: Copy env from hostname script
-  copy: src=scripts/get_env_from_hostname.sh dest=/usr/local/bin/get_env_from_hostname.sh mode=0755
+  copy: src=get_env_from_hostname.sh dest=/usr/local/bin/get_env_from_hostname.sh mode=0755
 
 - name: Copy unicorn service script
   copy: src=unicorn dest=/etc/init.d/unicorn mode=0755
