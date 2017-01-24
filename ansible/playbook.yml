@@ -1,0 +1,17 @@
+---
+- hosts: all
+  sudo: yes
+
+  roles:
+    - roles.add_unicorn_user
+    - roles.update_aptitiude
+    - roles.install_nokogiri_dependancies
+    - roles.install_nginx
+    - joshualund.ruby-2_1
+  tasks:
+    - name: Ensure python software properties
+      apt: pkg=python-software-properties state=present
+
+    - name: Ensure software-properties-common is installed
+      apt: pkg=software-properties-common state=present
+

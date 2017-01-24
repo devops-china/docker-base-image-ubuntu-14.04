@@ -1,0 +1,2 @@
+- name: Create unicorn user
+  user: name=unicorn shell=/bin/bash groups=syslog append=yes

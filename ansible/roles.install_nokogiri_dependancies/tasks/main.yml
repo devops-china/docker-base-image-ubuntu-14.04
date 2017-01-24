@@ -1,0 +1,6 @@
+- name: install nokogiri dependencies
+  apt: name={{item}} state=latest
+  with_items:
+    - libxslt1-dev
+    - libxml2-dev
+    - build-essential

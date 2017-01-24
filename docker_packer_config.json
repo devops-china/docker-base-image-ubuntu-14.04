@@ -1,0 +1,37 @@
+{
+    "variables": {
+        "secret_key": ""
+    },
+    "builders": [
+        {
+            "type": "docker",
+            "image": "ubuntu:14.04",
+            "commit": true
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "script": "./install_ansible.sh"
+        },{
+            "type": "ansible-local",
+            "playbook_file": "./playbook.yml",
+            "playbook_dir" : "./"
+        }
+    ],
+    "post-processors": [
+        [
+            {
+                "type": "docker-tag",
+                "repository": "ihakula/ubuntu1404-ruby",
+                "tag": "latest"
+            },
+            {
+                "type": "docker-push",
+                "login": true,
+                "login_username": "ihakula",
+                "login_password": "{{user `secret_key`}}"
+            }
+        ]
+    ]
+}
