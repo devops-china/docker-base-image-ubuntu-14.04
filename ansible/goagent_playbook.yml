@@ -8,11 +8,4 @@
       - name: Install Bundler
         command: bash -lc "gem install bundler"
       - name: Install bower
-        npm:
-          name=bower
-          global=yes
-          executable="/home/.nvm/versions/node/v4.2.1/bin"
-        become:
-          yes
-        become_user:
-          "root"
+        command: bash -lc "npm install bower -g"
