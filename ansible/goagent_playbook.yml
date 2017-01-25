@@ -11,3 +11,8 @@
         npm:
           name=bower
           global=yes
+          executable="/home/.nvm/versions/node/v4.2.1/bin"
+        become:
+          yes
+        become_user:
+          "root"
