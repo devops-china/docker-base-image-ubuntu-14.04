@@ -17,19 +17,9 @@
     name: bower
     global: "yes"
 
-- name: install grphantomjsunt global
+- name: install phantomjs global
   npm:
     name: phantomjs
     version: "2.1.1"
-    global: "yes"
-
-- name: install grunt global
-  npm:
-    name: grunt
-    global: "yes"
-
-- name: install grunt-cli global
-  npm:
-    name: grunt-cli
     global: "yes"
 
