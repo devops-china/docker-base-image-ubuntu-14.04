@@ -8,4 +8,6 @@
       - name: Install Bundler
         command: bash -lc "gem install bundler"
       - name: Install bower
-        command: bash -lc "npm install bower -g"
+        npm:
+          name: bower
+          global: yes
