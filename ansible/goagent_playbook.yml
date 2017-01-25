@@ -11,15 +11,3 @@
         npm:
           name=bower
           global=yes
-      - name: Install phantomjs
-        npm:
-          name=phantomjs
-          global=yes
-      - name: Install grunt
-        npm:
-          name=grunt
-          global=yes
-      - name: Install grunt-cli
-        npm:
-          name=grunt-cli
-          global=yes
