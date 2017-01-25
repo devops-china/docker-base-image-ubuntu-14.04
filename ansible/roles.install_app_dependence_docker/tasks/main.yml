@@ -1,0 +1,35 @@
+- name: install git
+  apt: name=git
+
+- name: install bundler
+  command: gem install bundler
+  sudo: yes
+
+- name: system link node
+  command: ln -s /usr/bin/nodejs /usr/bin/node
+  sudo: yes
+
+- name: install xvfb
+  apt: name=xvfb
+
+- name: install bower
+  npm:
+    name: bower
+    global: "yes"
+
+- name: install grphantomjsunt global
+  npm:
+    name: phantomjs
+    version: "2.1.1"
+    global: "yes"
+
+- name: install grunt global
+  npm:
+    name: grunt
+    global: "yes"
+
+- name: install grunt-cli global
+  npm:
+    name: grunt-cli
+    global: "yes"
+

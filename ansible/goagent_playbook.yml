@@ -4,10 +4,4 @@
 
   roles:
       - roles.nodejs
-  tasks:
-      - name: Install Bundler
-        command: bash -lc "gem install bundler"
-      - name: Install bower
-        npm:
-          name: bower
-          global: yes
+      - roles.install_app_dependence_docker
