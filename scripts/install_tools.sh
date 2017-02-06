@@ -8,6 +8,7 @@ apt-get update \
 &&  apt-get install -y apt-transport-https \
 &&  apt-get install -y ca-certificates \
 &&  apt-get install -y wget \
+&&  apt-get install software-properties-common \
 
 # Get Packer ready
 if [ ! -d "./tools/packer_0.11.0" ]; then
