@@ -24,3 +24,10 @@ add-apt-repository \
 apt-get update \
 &&  apt-get install libsystemd-journal0 \
 &&  apt-get install docker-engine
+
+# aliyun install docker
+apt-get update
+apt-get install linux-image-generic-lts-trusty
+reboot
+curl -sSL http://acs-public-mirror.oss-cn-hangzhou.aliyuncs.com/docker-engine/intranet | sh -
+docker --version
