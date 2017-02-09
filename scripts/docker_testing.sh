@@ -9,6 +9,8 @@ docker rm $(docker ps -aq)
 
 # Apache PHP
 docker run --name json-editor-online -p 8701:80 -e VIRTUAL_HOST=www.jsoneditoronline.cn -v /home/repos/jsoneditoronline/:/var/www/html/ -d eboraas/apache-php
+# source
+docker run --name zm-source -p 8702:80 -e VIRTUAL_HOST=source.sunzhongmou.com -v /home/repos/source/:/var/www/html/ -d eboraas/apache-php
 
 # MySQL
 docker run --name zm-mysql -e MYSQL_ROOT_PASSWORD=Wayde191! -d mysql:5.6
@@ -16,6 +18,7 @@ docker run --name zm-mysql -e MYSQL_ROOT_PASSWORD=Wayde191! -d mysql:5.6
 # localhost testing
 docker inspect 11b26a03a36a
 mysql -h 192.168.0.2 -P 3306 --protocol=tcp -u root -p
+docker inspect zm-mysql | grep IPAddress
 
 # phpMyAdmin
 docker run --name zm-phpmyadmin -d --link zm-mysql:db -e VIRTUAL_HOST=phpmyadmin.sunzhongmou.com -p 8601:80 phpmyadmin/phpmyadmin
