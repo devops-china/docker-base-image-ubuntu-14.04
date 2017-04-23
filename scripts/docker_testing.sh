@@ -12,6 +12,8 @@ docker run --name json-editor-online -p 8701:80 -e VIRTUAL_HOST=www.jsoneditoron
 # source
 docker run --name zm-source -p 8702:80 -e VIRTUAL_HOST=source.sunzhongmou.com -v /home/repos/source/:/var/www/html/ -d eboraas/apache-php
 
+docker run --name zm-auth -p 8704:80 -e VIRTUAL_HOST=www.ihakula.com -v /home/auth/:/var/www/html/ -d eboraas/apache-php
+
 # MySQL
 docker run --name zm-mysql -e MYSQL_ROOT_PASSWORD=Wayde191! -d mysql:5.6
 
@@ -25,9 +27,12 @@ docker run --name zm-phpmyadmin -d --link zm-mysql:db -e VIRTUAL_HOST=phpmyadmin
 
 # Nginx
 docker run --name zm-nginx -d -p 80:80 -p 443:443 -v /home/repos/szm-cer:/etc/nginx/certs -v /var/run/docker.sock:/tmp/docker.sock jwilder/nginx-proxy
+docker run --name zm-nginx-http -d -p 80:80 -v /var/run/docker.sock:/tmp/docker.sock jwilder/nginx-proxy
 
 # wordpress
 docker run --name zm-wordpress --link zm-mysql:mysql -e WORDPRESS_DB_NAME=szm-blog -e VIRTUAL_HOST=blog.sunzhongmou.com -p 8501:80 -d wordpress
+
+docker run --name zm-shop --link zm-mysql:mysql -e WORDPRESS_DB_NAME=szm-shop -e VIRTUAL_HOST=www.sunzhongmou.com -p 8502:80 -d wordpress
 
 
 # 1. Start a brand new Aliyun EC2
